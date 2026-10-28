@@ -1,0 +1,250 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --text-secondary: #94a3b8;
+    --btn-num: #334155;
+    --btn-num-hover: #475569;
+    --btn-func: #1e293b;
+    --btn-func-hover: #334155;
+    --btn-op: #0284c7;
+    --btn-op-hover: #0369a1;
+    --btn-equal: #16a34a;
+    --btn-equal-hover: #15803d;
+    --btn-danger: #dc2626;
+    --btn-danger-hover: #b91c1c;
+    --border-color: #334155;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-color: #0f172a;
+    --text-secondary: #64748b;
+    --btn-num: #e2e8f0;
+    --btn-num-hover: #cbd5e1;
+    --btn-func: #f8fafc;
+    --btn-func-hover: #e2e8f0;
+    --btn-op: #0284c7;
+    --btn-op-hover: #0369a1;
+    --btn-equal: #16a34a;
+    --btn-equal-hover: #15803d;
+    --btn-danger: #ef4444;
+    --btn-danger-hover: #dc2626;
+    --border-color: #cbd5e1;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator-container {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 25px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calculator-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.top-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.badge-btn {
+    background-color: var(--btn-num);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Paparan Skrin */
+.display-section {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: right;
+    margin-bottom: 20px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-break: break-all;
+}
+
+.expression-display {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    min-height: 20px;
+}
+
+.result-display {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* Keypad Grid */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+}
+
+.btn {
+    padding: 14px 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn-num {
+    background-color: var(--btn-num);
+    color: var(--text-color);
+}
+.btn-num:hover { background-color: var(--btn-num-hover); }
+
+.btn-func {
+    background-color: var(--btn-func);
+    color: var(--text-color);
+}
+.btn-func:hover { background-color: var(--btn-func-hover); }
+
+.btn-op, .btn-action {
+    background-color: var(--btn-op);
+    color: white;
+}
+.btn-op:hover, .btn-action:hover { background-color: var(--btn-op-hover); }
+
+.btn-equal {
+    background-color: var(--btn-equal);
+    color: white;
+}
+.btn-equal:hover { background-color: var(--btn-equal-hover); }
+
+.btn-danger {
+    background-color: var(--btn-danger);
+    color: white;
+}
+.btn-danger:hover { background-color: var(--btn-danger-hover); }
+
+.span-h {
+    grid-column: span 2;
+}
+
+.span-v {
+    grid-row: span 2;
+}
+
+/* Sejarah */
+.history-section {
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.history-list {
+    list-style: none;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 4px 0;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.history-item:hover {
+    color: var(--text-color);
+}
+
+.empty-msg {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+@media (max-width: 400px) {
+    .keypad {
+        gap: 5px;
+    }
+    .btn {
+        padding: 10px 2px;
+        font-size: 0.85rem;
+    }
+}

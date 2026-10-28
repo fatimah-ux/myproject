@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Saintifik</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="calculator-container">
+        <!-- Tajuk & Kawalan Mod -->
+        <div class="calculator-header">
+            <h2>Kalkulator Saintifik</h2>
+            <div class="top-controls">
+                <button id="angle-mode-btn" class="badge-btn">DEG</button>
+                <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+
+        <!-- Paparan Skrin -->
+        <div class="display-section">
+            <div id="expression" class="expression-display"></div>
+            <div id="result" class="result-display">0</div>
+        </div>
+
+        <!-- Papan Kekunci Kalkulator -->
+        <div class="keypad">
+            <!-- Baris 1: Memori & Fungsi Asas -->
+            <button class="btn btn-func" onclick="handleMemory('MC')">MC</button>
+            <button class="btn btn-func" onclick="handleMemory('MR')">MR</button>
+            <button class="btn btn-func" onclick="handleMemory('M+')">M+</button>
+            <button class="btn btn-func" onclick="handleMemory('M-')">M-</button>
+            <button class="btn btn-danger" onclick="clearAll()">AC</button>
+            <button class="btn btn-action" onclick="deleteChar()"><i class="fas fa-backspace"></i></button>
+
+            <!-- Baris 2: Trigo & Log -->
+            <button class="btn btn-func" onclick="appendFunction('sin(')">sin</button>
+            <button class="btn btn-func" onclick="appendFunction('cos(')">cos</button>
+            <button class="btn btn-func" onclick="appendFunction('tan(')">tan</button>
+            <button class="btn btn-func" onclick="appendFunction('log(')">log</button>
+            <button class="btn btn-func" onclick="appendFunction('ln(')">ln</button>
+            <button class="btn btn-op" onclick="appendValue('/')">÷</button>
+
+            <!-- Baris 3: Punca Kuasa & Kuasa -->
+            <button class="btn btn-func" onclick="appendFunction('asin(')">sin⁻¹</button>
+            <button class="btn btn-func" onclick="appendFunction('acos(')">cos⁻¹</button>
+            <button class="btn btn-func" onclick="appendFunction('atan(')">tan⁻¹</button>
+            <button class="btn btn-func" onclick="appendFunction('sqrt(')">√</button>
+            <button class="btn btn-func" onclick="appendValue('^')">x^y</button>
+            <button class="btn btn-op" onclick="appendValue('*')">×</button>
+
+            <!-- Baris 4: Nombor & Operasi -->
+            <button class="btn btn-func" onclick="appendValue('π')">π</button>
+            <button class="btn btn-func" onclick="appendValue('e')">e</button>
+
+            <button class="btn btn-num" onclick="appendValue('7')">7</button>
+            <button class="btn btn-num" onclick="appendValue('8')">8</button>
+            <button class="btn btn-num" onclick="appendValue('9')">9</button>
+            <button class="btn btn-op" onclick="appendValue('-')">-</button>
+
+            <!-- Baris 5 -->
+            <button class="btn btn-func" onclick="appendFunction('fact(')">n!</button>
+            <button class="btn btn-func" onclick="appendValue('(')">(</button>
+            
+            <button class="btn btn-num" onclick="appendValue('4')">4</button>
+            <button class="btn btn-num" onclick="appendValue('5')">5</button>
+            <button class="btn btn-num" onclick="appendValue('6')">6</button>
+            <button class="btn btn-op" onclick="appendValue('+')">+</button>
+
+            <!-- Baris 6 -->
+            <button class="btn btn-func" onclick="appendValue(')')">)</button>
+            <button class="btn btn-func" onclick="appendValue('%')">%</button>
+            
+            <button class="btn btn-num" onclick="appendValue('1')">1</button>
+            <button class="btn btn-num" onclick="appendValue('2')">2</button>
+            <button class="btn btn-num" onclick="appendValue('3')">3</button>
+            <button class="btn btn-equal span-v" onclick="calculate()">=</button>
+
+            <!-- Baris 7 -->
+            <button class="btn btn-num span-h" onclick="appendValue('0')">0</button>
+            <button class="btn btn-num" onclick="appendValue('.')">.</button>
+            <button class="btn btn-func" onclick="toggleSign()">±</button>
+        </div>
+
+        <!-- Sejarah Pengiraan -->
+        <div class="history-section">
+            <div class="history-header">
+                <span><i class="fas fa-history"></i> Sejarah</span>
+                <button onclick="clearHistory()" class="text-btn">Padam</button>
+            </div>
+            <ul id="history-list" class="history-list">
+                <li class="empty-msg">Tiada rekod sejarah</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
